@@ -1,0 +1,30 @@
+{
+  "name": "broccoli-pug",
+  "version": "0.0.1",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ilikebits/broccoli-pug.git"
+  },
+  "scripts": {
+    "prepublish": "coffee -c index.coffee"
+  },
+  "keywords": [
+    "broccoli",
+    "broccoli-plugin",
+    "pug",
+    "templates",
+    "render",
+    "compile"
+  ],
+  "dependencies": {
+    "bluebird": "^3.4.1",
+    "broccoli-plugin": "^1.2.1",
+    "file": "^0.2.2",
+    "mkdirp": "^0.5.1",
+    "pug": "^2.0.0-beta3"
+  },
+  "devDependencies": {
+    "coffee-script": "^1.10.0"
+  }
+}
