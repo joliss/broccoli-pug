@@ -19,6 +19,9 @@ class BroccoliPug extends Plugin
     super inputNodes, options
 
   build: ->
+    # TODO: we need to cache input files and avoid rebuilding them if their
+    # sources are unchanged. We also need to scan for their import/include
+    # dependencies, so we can rebuild when a dependency changes.
     promises = []
     for inputPath in @inputPaths
       fileUtils.walkSync inputPath, (dirPath, dirs, files) =>
@@ -28,7 +31,7 @@ class BroccoliPug extends Plugin
           relativePath = path.relative inputPath, fullPath
           outputPath = path.join @outputPath, relativePath
             .replace /\.[^/.]+$/, ''
-          mkdirp.sync outputPath
+          mkdirp.sync path.dirname outputPath
 
           promises.push(
             if @render

@@ -7,7 +7,10 @@ rebuilds. It is not production-ready.
 
 Because of Broccoli's design, this plugin is unable to resolve relative
 imports to files outside of its input nodes. The workaround for this is to move
-all relative imports into the input nodes (e.g. using `broccoli-funnel`).
+all relative imports into the input nodes (e.g. using `broccoli-funnel` and then
+`broccoli-merge`). Note that imports must be in the same _input node_; it is not
+sufficient to simply include imports as a separate input node. You can do this
+by combining nodes using `broccoli-merge`.
 
 # Usage
 ```
