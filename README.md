@@ -2,9 +2,6 @@
 
 `broccoli-pug` compiles or renders `pug` templates.
 
-This plugin does NOT cache its output, and is thus rather slow on incremental
-rebuilds. It is not production-ready.
-
 Because of Broccoli's design, this plugin is unable to resolve relative
 imports to files outside of its input nodes. The workaround for this is to move
 all relative imports into the input nodes (e.g. using `broccoli-funnel` and then
@@ -33,6 +30,10 @@ HTML rather than compiling to a JS function.
 
 `options.pugOptions` specifies options for the `pug` compiler. It is passed
 directly to the compiler.
+
+# Contributing
+I would love if anybody could contribute some tests to this repository. Feel free
+to leave PRs, test or otherwise.
 
 # License
 Copyright 2016 Lehao Zhang. Released to the general public under the terms of
