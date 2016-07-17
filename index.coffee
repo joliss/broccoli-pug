@@ -110,7 +110,7 @@ class BroccoliPug extends Plugin
         # Make cache file folder
         mkdirp path.dirname cachePath
 
-        promise = do (inputPath, fullPath, relativePath, outputPath, mtime, meta) =>
+        promise = do (inputPath, fullPath, relativePath, cachePath, outputPath, mtime, meta) =>
           fs.readFileAsync fullPath, 'utf8'
             .then (contents) =>
               # Parse the file for FileReferences (see
@@ -126,7 +126,6 @@ class BroccoliPug extends Plugin
               meta[relativePath] = {dependencies, mtime}
 
               # Write compiled file to cache and symlink to output
-              cachePath = path.join @cachePath, relativePath
               compiled = compile fullPath, @render, @pugOptions
 
               fs.writeFileAsync cachePath, compiled
