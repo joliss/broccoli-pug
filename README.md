@@ -10,10 +10,10 @@ sufficient to simply include imports as a separate input node. You can do this
 by combining nodes using `broccoli-merge`.
 
 # Usage
-```
-var pug = require('broccoli-pug');
-var html = pug([inputTree1, inputTree2], {
-  render: true
+```js
+var Pug = require('broccoli-pug');
+var html = new Pug([inputNode1, inputNode2], {
+  render: true,
   pugOptions: {
     // ...
   }
