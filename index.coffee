@@ -18,6 +18,9 @@ replaceExtension = (file, ext) -> file.substr(0, file.lastIndexOf '.') + ext
 getReferences = (node) ->
   refs = []
 
+  # util = require('util')
+  # if (/navbar/).exec(util.inspect(node))
+  #   console.log(util.inspect(node))
   if node.file? and node.file.type is 'FileReference'
     refs.push node.file.path
 
@@ -117,6 +120,7 @@ class BroccoliPug extends Plugin
               # https://github.com/pugjs/pug-ast-spec/blob/master/parser.md)
               tokens = lex contents, filename: fullPath
               ast = parse tokens, filename: fullPath, src: contents
+              console.error getReferences ast
               dependencies = getReferences ast
                 .map (depPath) ->
                   resolved = path.relative inputPath, path.join path.dirname(fullPath), depPath
